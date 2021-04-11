@@ -3,11 +3,14 @@
 require "../_DBConnect.php";
 $success = false;
 if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['name'] != '') {
-    $sql1 = "INSERT INTO acc_req values('".$_POST['name']."','".$_POST['city']."','".$_POST['email']."','".$_POST['address']."');";
+ $sql1 = "INSERT INTO acc_req values('".$_POST['name']."','".$_POST['city']."','".$_POST['email']."','".$_POST['address']."',current_timestamp());";
 
     $res1 = mysqli_query($conn,$sql1);
 
+
     $success = true;
+header("location: ../../index.php");
+   
 }
 
 
