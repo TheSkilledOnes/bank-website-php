@@ -19,6 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $acc = $row['acc_no'];
 
                 session_start();
+                echo "looged in";
 
                 $_SESSION['loggedIn'] = true;
                 $_SESSION['username'] = $username;
