@@ -23,7 +23,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['loggedIn'] = true;
                 $_SESSION['username'] = $username;
                 $_SESSION['acc_no'] = $row['acc_no'];
-                header("location: dashboard.php");
+                if($username == "admin") {
+                    header("location: adminDashboard.php");
+                }else {
+                    header("location: dashboard.php");
+                }
+                
 
 
             }
@@ -105,8 +110,8 @@ if($showError != false) {
         </div>
 
 
-        <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
-        <p class="mt-5 mb-3 text-muted"><a href="adminLogin.php" class = "my-3 fw-bold line-dark" >Administrator login</a></p>
+       <!-- <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
+        <p class="mt-5 mb-3 text-muted"><a href="adminLogin.php" class = "my-3 fw-bold line-dark" >Administrator login</a></p>-->
 
         <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
     </form>
